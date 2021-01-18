@@ -1,11 +1,14 @@
 [beacons]
-blescan-003.petersburg.epam.com
+#blescan-010
+10.66.165.18
+#blescan-003.petersburg.epam.com
 #blescan-001.petersburg.epam.com ansible_user=pi ansible_pass=adaada
 
 [beacons:vars]
-ansible_ssh_pass=0micr0n3b 
+ansible_ssh_pass=BLE_Scanner_pwd!
 ansible_ssh_user=pi 
 ansible_ssh_private_key_file=./.ssh/beacon-003
 ansible_become=yes 
 ansible_become_method=sudo
+ansible_python_interpreter=/usr/bin/python2.7
 #gather_facts=False
