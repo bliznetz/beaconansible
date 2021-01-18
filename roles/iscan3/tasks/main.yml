@@ -48,12 +48,12 @@
       chdir: /iscan3/
        
   - name: Add logging
-    shell: cat iscan3.log >> /etc/logrotate.d/rsyslog
+    shell: cat iscan3.log > /etc/logrotate.d/iscan3
     args:
       chdir: /iscan3/
-     
-  - name: start iscan3 service
-    systemd:
+      
+  - name: Start iscan3 service
+    ansible.builtin.systemd:
       state: started
       name: iscan3
       enabled: yes
@@ -68,7 +68,7 @@
       msg: "{{ iscan3_status }}"
          
   - name: Start logging
-    shell: logrotate /etc/logrotate.d/rsyslog
+    shell: logrotate -f /etc/logrotate.d/rsyslog
     
   - name: Check log   
     debug:
